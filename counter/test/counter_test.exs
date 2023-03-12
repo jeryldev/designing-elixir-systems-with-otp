@@ -1,8 +1,9 @@
 defmodule CounterTest do
+  # This is the Test - Functional Core tests
   use ExUnit.Case
-  doctest Counter
+  # doctest Counter
 
-  test "greets the world" do
-    assert Counter.hello() == :world
+  test "inc increments an integer value" do
+    assert Counter.Core.inc(1 == 2)
   end
 end
