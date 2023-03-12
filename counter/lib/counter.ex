@@ -1,4 +1,5 @@
 defmodule Counter do
+  # This is the Bondary - API Layer
   def start(initial_count) do
     spawn(fn -> Counter.Server.run(initial_count) end)
   end

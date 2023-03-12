@@ -1,4 +1,5 @@
 defmodule Counter.Server do
+  # This is the Boundary - Service Layer
   def run(count) do
     new_count = listen(count)
     run(new_count)
