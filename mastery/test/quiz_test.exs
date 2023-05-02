@@ -31,7 +31,7 @@ defmodule QuizTest do
       |> assert_more_questions()
       |> right_answer()
       |> Quiz.select_question()
-      |> asswert_more_questions()
+      |> assert_more_questions()
       |> wrong_answer()
       |> Quiz.select_question()
       |> assert_more_questions()

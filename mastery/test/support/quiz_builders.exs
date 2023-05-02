@@ -6,14 +6,14 @@ defmodule QuizBuilders do
     end
   end
 
-  # alias Mastery.Core.{Template, Response, Quiz}
+  alias Mastery.Core.{Template, Question, Quiz}
 
   def template_fields(overrides \\ []) do
     Keyword.merge(
       [
         name: :single_digit_addition,
         category: :addition,
-        intructions: "Add the numbers",
+        instructions: "Add the numbers",
         raw: "<%= @left %> + <%= @right %>",
         generators: addition_generators(single_digits()),
         checker: &addition_checker/2
@@ -42,8 +42,8 @@ defmodule QuizBuilders do
   end
 
   def addition_checker(substitutions, answer) do
-    left = Keyword.fetch!(substitutuions, :left)
-    right = Keyword.fetch!(substitutuions, :right)
+    left = Keyword.fetch!(substitutions, :left)
+    right = Keyword.fetch!(substitutions, :right)
     to_string(left + right) == String.trim(answer)
   end
 
