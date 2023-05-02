@@ -14,7 +14,8 @@ defmodule Mastery.MixProject do
         "coveralls.detail": :test,
         "coveralls.post": :test,
         "coveralls.html": :test
-      ]
+      ],
+      xref: [exclude: [EEx]]
     ]
   end
 
