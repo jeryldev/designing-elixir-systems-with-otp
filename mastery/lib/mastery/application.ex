@@ -10,6 +10,9 @@ defmodule Mastery.Application do
     children = [
       # Starts a worker by calling: Mastery.Worker.start_link(arg)
       # {Mastery.Worker, arg}
+      {Mastery.Boundary.QuizManager, [name: Mastery.Boundary.QuizManager]},
+      {Registry, [name: Mastery.Registry.QuizSession, keys: :unique]},
+      {DynamicSupervisor, [name: Mastery.Supervisor.QuizSession, stategy: :one_for_one]}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
