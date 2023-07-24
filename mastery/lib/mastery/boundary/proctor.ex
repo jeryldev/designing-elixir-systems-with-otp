@@ -8,6 +8,17 @@ defmodule Mastery.Boundary.Proctor do
   end
 
   def init(quizzes) do
+    # This is a distributed system, and as with all of them,
+    # there are trade-offs. We need to establish a policy.
+    # If our server crashes midstream, we’ll lose the timeouts
+    # that have already been set. Maybe this is OK;
+    # a crash could just notify the proctor and they could intervene manually.
+    # But maybe we want to do a little bit of extra work to rehydrate
+    # the data in the event of a crash but the init callback
+    # gives us a perfectly convenient place to add that code.
+    # If you decide that’s where Mastery should go,
+    # we’ll leave that code for you to write!
+
     {:ok, quizzes}
   end
 
