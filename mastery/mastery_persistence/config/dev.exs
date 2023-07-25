@@ -1,5 +1,6 @@
 import Config
 
+# Configure your database
 config :mastery_persistence, MasteryPersistence.Repo,
   username: "postgres",
   password: "postgres",
