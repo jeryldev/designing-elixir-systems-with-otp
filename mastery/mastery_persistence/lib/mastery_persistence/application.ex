@@ -10,6 +10,7 @@ defmodule MasteryPersistence.Application do
     children = [
       # Starts a worker by calling: MasteryPersistence.Worker.start_link(arg)
       # {MasteryPersistence.Worker, arg}
+      MasteryPersistence.Repo
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
