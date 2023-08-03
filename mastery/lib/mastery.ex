@@ -19,10 +19,17 @@ defmodule Mastery do
          else: (error -> error)
   end
 
-  def schedule_quiz(quiz, templates, start_at, end_at) do
+  def schedule_quiz(quiz, templates, start_at, end_at, notify_pid \\ nil) do
     with :ok <- QuizValidator.errors(quiz),
          true <- Enum.all?(templates, &(:ok == TemplateValidator.errors(&1))),
-         :ok <- Proctor.schedule_quiz(quiz, templates, start_at, end_at),
+         :ok <-
+           Proctor.schedule_quiz(
+             quiz,
+             templates,
+             start_at,
+             end_at,
+             notify_pid
+           ),
          do: :ok,
          else: (error -> error)
   end
